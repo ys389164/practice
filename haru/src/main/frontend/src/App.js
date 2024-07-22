@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import TestF from "./api/test";
 import TestT from "./components/TestT";
+import wal from "./components/wal"
 function App() {
 
   // 비동기 함수
@@ -10,6 +11,13 @@ function App() {
   }
 
   startApi()
+
+  async function test(){
+    console.log((await wal()))
+  }
+
+  test()
+
 
   return (
     <div className="App">

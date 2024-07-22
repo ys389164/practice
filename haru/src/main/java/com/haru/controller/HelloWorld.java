@@ -1,6 +1,7 @@
 package com.haru.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
@@ -17,5 +18,10 @@ public class HelloWorld {
     @GetMapping("/api/hello")
     public String apiHello() {
         return "Hello World";
+    }
+
+    @PostMapping("/wal")
+    public String wal() {
+        return "Hello Wald";
     }
 }

@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// reactDom 이 만들어져서 들어가는 것.
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <App />
