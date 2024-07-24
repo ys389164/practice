@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Modal from './checkModal';
+import Modal from '../../components/diaryModal';
 
 export default function dairyWriting() {
     const [show, setShow] = useState(false);

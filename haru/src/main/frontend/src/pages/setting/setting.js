@@ -1,3 +1,5 @@
+import userSetting from '../../components/userSetting'
+
 export default function setting(){
     return (
         <body>

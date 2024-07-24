@@ -1,10 +1,13 @@
-import './App.css';
-// import TestF from "./api/test";
-// import wal from "./components/wal"
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-// import Main from "./Main";
-import Dairy from "./dairy/dairy";
+// import Dairy from "./pages/dairy/dairy";
+// import Main from "./pages/Main"
+import Setting from "./pages/setting/setting"
+
+
+
+
+
 
 // const sendDataToBackend = async (value) => {
 //     try {
@@ -35,7 +38,8 @@ function App() {
     <div className="App">
       <Header></Header>
         {/*<Main></Main>*/}
-        <Dairy></Dairy>
+        {/*<Dairy></Dairy>*/}
+        <Setting></Setting>
       <Footer></Footer>
     </div>
   );
