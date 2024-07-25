@@ -1,4 +1,4 @@
-export default function memoWriting() {
+export default function MemoWriting() {
     return (
         <body>
         <button className="uploadBtn" id="uploadBtn">완룟</button>

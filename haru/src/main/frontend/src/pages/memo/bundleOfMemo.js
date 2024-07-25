@@ -1,4 +1,4 @@
-export default function bundleOfMemo() {
+export default function BundleOfMemo() {
     return (
         <body>
         <section className="searchContainer">

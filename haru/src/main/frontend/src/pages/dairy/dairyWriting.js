@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from '../../components/diaryModal';
 
-export default function dairyWriting() {
+export default function DairyWriting() {
     const [show, setShow] = useState(false);
 
     const showModal = () => {

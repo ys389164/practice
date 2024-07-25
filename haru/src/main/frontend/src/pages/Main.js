@@ -1,4 +1,4 @@
-export default function main() {
+export default function Main() {
     return (
         <body>
         <section className="calendarWrap">

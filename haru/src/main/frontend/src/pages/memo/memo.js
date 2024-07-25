@@ -1,4 +1,4 @@
-export default function memo() {
+export default function Memo() {
     return (
         <body>
         <section className="searchContainer">

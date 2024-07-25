@@ -1,4 +1,4 @@
-export default function dairy() {
+export default function Dairy() {
     return (
         <body>
         <section className="dairyCalendarWrap">

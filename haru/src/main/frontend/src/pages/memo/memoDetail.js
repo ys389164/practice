@@ -1,4 +1,4 @@
-export default function memoDetail() {
+export default function MemoDetail() {
     return (
         <body>
         <p className="writedTime">작성(수정)된 시간</p>
