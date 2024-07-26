@@ -2,12 +2,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 // import Dairy from "./pages/dairy/dairy";
 // import Main from "./pages/Main"
-import Setting from "./pages/setting/setting"
-
-
-
-
-
+import Setting from "./pages/setting"
 
 // const sendDataToBackend = async (value) => {
 //     try {

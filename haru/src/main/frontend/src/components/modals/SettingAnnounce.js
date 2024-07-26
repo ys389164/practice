@@ -1,6 +1,6 @@
-export default function Announce() {
+export default function SettingAnnounce() {
     return (
-        <body>
+        <div class="main" id="main">
         <h2> FAQ</h2>
         <section>
             <div className="announceWrap" id="announceWrap">
@@ -16,6 +16,6 @@ export default function Announce() {
                 </ul>
             </div>
         </section>
-        </body>
+        </div>
     )
 }

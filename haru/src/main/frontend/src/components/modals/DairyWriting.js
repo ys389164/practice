@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Modal from '../../components/diaryModal';
+import Modal from './diaryModal';
 
 export default function DairyWriting() {
     const [show, setShow] = useState(false);
@@ -13,7 +13,7 @@ export default function DairyWriting() {
     };
 
     return (
-        <body>
+        <div class="main" id="main">
         <section className="dairyFormWrap">
             <button className="dairyCancelBtn" id="dairyCancelBtn"></button>
             <p className="dairyDay" id="dairyDay">해당 일</p>
@@ -34,6 +34,6 @@ export default function DairyWriting() {
             <button onClick={hideModal}>확인</button>
             <button onClick={hideModal}>취소</button>
         </Modal>
-        </body>
+        </div>
     );
 }

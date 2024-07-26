@@ -1,6 +1,6 @@
-export default function BundleOfMemo() {
+export default function SettingBundleOfMemo() {
     return (
-        <body>
+        <div class="main" id="main">
         <section className="searchContainer">
             <div>
                 <div class="inputBox">
@@ -31,6 +31,6 @@ export default function BundleOfMemo() {
             <p className="bundleInfo" id="bundleInfo">메모 개수</p>
             <button className="addMemo" id="addMemo"></button>
         </section>
-        </body>
+        </div>
     )
 }

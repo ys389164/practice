@@ -1,6 +1,6 @@
-export default function Faq() {
+export default function SettingFaq() {
     return (
-        <body>
+        <div class="main" id="main">
         <h2> FAQ</h2>
         <section>
             <div className="Kinds">
@@ -35,6 +35,6 @@ export default function Faq() {
                 </ul>
             </div>
         </section>
-        </body>
+        </div>
     )
 }

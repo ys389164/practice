@@ -1,6 +1,6 @@
-export default function UserSetting() {
+export default function SettingUser() {
     return (
-        <body>
+        <div class="main" id="main">
         <h2> 계정</h2>
         <section>
             <div>
@@ -14,6 +14,6 @@ export default function UserSetting() {
                 <button>회원 탈퇴</button>
             </div>
         </section>
-        </body>
+        </div>
     )
 }
