@@ -1,0 +1,10 @@
+@mixin displayJA($justify:center, $align:center){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin setWH($width, $height){
+    width:$width;
+    height: $height;
+}

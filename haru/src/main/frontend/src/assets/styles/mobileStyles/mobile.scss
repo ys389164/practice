@@ -1,0 +1,19 @@
+// 모바일 컴포넌트 scss
+@import './componentsStyles/header.scss';
+@import './componentsStyles/footer.scss';
+@import './componentsStyles/dairyWriting.scss';
+@import './componentsStyles/dairyModal.scss';
+
+// 모바일 페이지 scss
+@import './pagesStyles/home.scss';
+@import './pagesStyles/dairy.scss';
+@import './pagesStyles/memo.scss';
+@import './pagesStyles/memoWriting.scss';
+@import './pagesStyles/memoDetail.scss';
+@import './pagesStyles/memoBundle.scss';
+@import './pagesStyles/setting.scss';
+@import './pagesStyles/settingUser.scss';
+@import './pagesStyles/settingBackup.scss';
+@import './pagesStyles/settingExportToText.scss';
+@import './pagesStyles/settingFaq.scss';
+@import './pagesStyles/settingAnnounce.scss';

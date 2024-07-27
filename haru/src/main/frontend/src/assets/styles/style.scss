@@ -1,0 +1,21 @@
+@import './reset.scss';
+@import './val.scss';
+
+// @media (max-width:768px) {
+    @import './mobileStyles/mobile.scss';
+// }
+// @media (min-width:769px) {
+    // @import './pcStyles/pc.scss';
+// }
+.App{
+    min-width: 320px;
+    height: 100vh;
+
+    .mainContainer{
+        height: 80%;
+
+        &>div{
+            height: 100%;
+        }
+    }
+}

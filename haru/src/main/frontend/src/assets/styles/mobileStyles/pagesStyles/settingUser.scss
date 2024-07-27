@@ -1,0 +1,52 @@
+.settingUserContainer{
+    height: 100%;
+
+    .settingUserContainerTop{
+        position: relative;
+        height: 10%;
+
+        border-bottom: 2px solid #eeeeee;
+        padding: 10px;
+        
+        display: flex;
+
+        h2{
+            position: absolute;
+            top: 50%;
+            left: 0;
+
+            width: 100%;
+
+            transform: translateY(-50%);
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        button{
+            padding: 10px;
+            @include displayJA();
+        }
+    }
+
+    // 계정관리
+    .accountManagements{
+        height: 90%;
+
+        padding: 10px;
+
+        @include displayJA(space-between,center);
+        flex-direction: column;
+
+        &>div{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            width: 100%;
+
+            button {
+                padding: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+.memoDetailContainer{
+    height: 100%;
+
+    padding: 10px;
+
+    .memoDetailTop{
+        @include displayJA(space-between);
+
+        height: 10%;
+
+        padding: 10px 0;
+
+        // 시간
+        .writedTime{        
+            border: 1px solid;
+
+            width: 70%;
+            height: 100%;
+        
+
+            @include displayJA();
+        }
+
+        // 뒤로가기
+        .goBack{
+            height: 100%;
+
+        }
+    }
+
+    // 제목
+    .detaliContentsBox{
+        height: 90%;
+
+        border: 1px solid;
+        .memotitle{
+            padding: 10px;
+
+            height: 10%;
+
+            border-bottom: 1px solid;
+            
+            @include displayJA(start);
+        }
+        .memocontents{
+            padding: 15px;
+            width: 100%;
+            height: calc(90%);
+        }
+    }
+}

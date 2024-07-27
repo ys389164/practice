@@ -1,0 +1,47 @@
+.memoContainer{
+    height: 100%;
+
+    @include displayJA(space-between, _);
+    flex-direction: column;
+    .memoRelatedWrap{
+        //검색
+
+        .searchContainer{
+            border-bottom: 1px solid #8d8d8d;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 50px;
+        }
+
+        //리스트
+        .memoFolderContainer{
+
+            &>ul{                
+                padding: 5px;
+                .memoD{
+                    height: 50px;
+
+                    border: 1px solid #8d8d8d80;
+                    margin-bottom: 5px;
+
+                    @include displayJA();
+                }
+            }
+        }
+
+    }
+
+    .addContainer{
+        width: 100%;
+
+        @include displayJA(space-between,_);
+
+        button{
+            width:50%;
+            height: 50px;
+        }
+    }
+}

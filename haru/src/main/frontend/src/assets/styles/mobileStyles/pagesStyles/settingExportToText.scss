@@ -1,0 +1,54 @@
+.settingExportToTextContainer{
+    height: 100%;
+    .settingExportToTextTop{
+        position: relative;
+        height: 10%;
+
+        border-bottom: 2px solid #eeeeee;
+        padding: 10px;
+        
+        display: flex;
+
+        h2{
+            position: absolute;
+            top: 50%;
+            left: 0;
+
+            width: 100%;
+
+            transform: translateY(-50%);
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        button{
+            padding: 10px 0;
+
+            width: 60px;
+            @include displayJA();
+        }
+    }
+
+    section{
+        height: 90%;
+
+        @include displayJA(space-between,center);
+        flex-direction: column;
+
+        .selectExportWrap{
+            display: flex;
+            flex-direction: column;
+            
+            width: 100%;
+            button{
+                padding: 10px;
+                margin-bottom: 5px;
+            }
+        }
+
+        .exportAll{
+            width: 100%;
+            padding: 10px;
+        }
+    }
+}

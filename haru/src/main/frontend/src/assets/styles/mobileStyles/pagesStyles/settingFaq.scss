@@ -1,0 +1,84 @@
+.settingFaqContainer{
+    height: 100%;
+
+    .settingFaqTop{
+        position: relative;
+        height: 10%;
+
+        border-bottom: 2px solid #eeeeee;
+        padding: 10px;
+        
+        display: flex;
+
+        h2{
+            position: absolute;
+            top: 50%;
+            left: 0;
+
+            width: 100%;
+
+            transform: translateY(-50%);
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        button{
+            padding: 10px;
+            @include displayJA();
+        }
+    }
+
+    &>section{
+        height: 90%;
+
+        .Kinds{
+            height: 15%;
+
+            margin-bottom: 20px;
+            padding: 10px;
+            @include displayJA(space-between, center);
+
+            button{
+                width: 20%;
+                height: 50px;
+            }
+        }
+
+        .faqList{
+            height: calc(85% - 20px);
+            
+            .qaList{
+                height: 100%;
+
+                overflow: scroll;
+                .qaItem{
+                    position: relative;
+
+                    margin-bottom: 10px;
+
+                    button{
+                        padding: 10px;
+
+                        width: 100%;
+
+                        display: flex;
+                        justify-content: space-between;
+                    }
+
+                    .answerWrap{
+                        max-height: 0px;
+
+                        transition: 0.3s;
+                        overflow: hidden;
+                    }
+
+                    &.active{
+                        .answerWrap{
+                            max-height: 40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

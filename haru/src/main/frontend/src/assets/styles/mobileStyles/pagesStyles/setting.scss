@@ -1,0 +1,91 @@
+.settingContainer{
+    border: 1px solid;
+    padding: 10px;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .userInfo{
+        margin-bottom: 10px;
+
+        border: 1px solid;
+        border-radius: 5px;
+        padding: 10px;
+
+        h3{
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        &>div{
+            margin-bottom: 10px;
+
+            display: flex;
+
+            img{
+                border: 1px solid;
+
+                width: 100px;
+                aspect-ratio: 1/1;
+
+                margin-right: 10px;
+
+            }
+
+            .accountText{
+                padding: 5px;
+
+                width: 90%;
+                border: 1px solid;
+
+                line-height: 20px;
+            }
+
+        }
+
+        &>button{
+            padding: 10px 0;
+            width: 100%;
+        }
+    }
+
+    .options{
+        height: 100%;
+
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        overflow: scroll;
+
+        margin-top: 10px;
+
+        h3{
+            font-size: 1.2rem;
+            margin-bottom: 5px
+        }
+
+        .optionsBtnWrap{
+            @include displayJA(start,center);
+            flex-direction: column;
+
+            overflow: scroll;
+            height: 100%;
+            
+            button{
+                width: 100%;
+                
+                padding: 10px;
+                margin-bottom: 5px;
+            }
+        }
+
+        .appVersion{
+            text-align: end;
+
+            font-size: 0.8rem;
+        }
+    }
+}

@@ -1,0 +1,50 @@
+.dairyModalContainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: #2e2e2e80;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+
+    .reQuestion{
+        width: 80%;
+        height: 30%;
+
+        background: #fff;
+        
+        border: 1px solid;
+        padding: 40px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+        line-height: 22px;
+
+        .checkBoxWrap{
+            margin-top: 40px;
+            display: flex;
+        }
+    }
+
+
+    .modal-main{
+        width: 80%;
+        height: 10%;
+
+        button{
+            width: 50%;
+            height: 100%;
+        }
+    }
+}
