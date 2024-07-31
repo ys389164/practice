@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
-export default function home() {
+export default function Home() {
+    const [calenderOpenState, setCalenderOpenState] = useState(false);
+
     return (
-        <div className="homeContainer" id="homeContainer">
-            <section className="calendarWrap">
+        <div className={calenderOpenState ? "homeContainer active" : "homeContainer"} id="homeContainer">
+            <section className="calendarWrap" onClick={()=>{setCalenderOpenState(true)}}>
                 <FullCalendar
                     plugins={[dayGridPlugin]}
                     initialView="dayGridMonth"
-                    height="100%"
-                    contentHeight='100px'
+                    height="90%"
                     events={[
-                        {date: '2024-08-01', extendedProps: {stamp: '✔'}},
+                        {date: '2024-08-01', extendedProps: {stamp: '✔️'}},
                         {date: '2024-08-02', extendedProps: {stamp: '❌'}}
                     ]}
                     eventContent={renderEventContent}
@@ -25,6 +26,10 @@ export default function home() {
                     <div className="recentDiary">diary</div>
                 </div>
             </section>
+
+            <div className='scheduleBtnWrap'>
+                <button type='button' className='showSchedule' onClick={()=>{setCalenderOpenState(false)}}>X</button>
+            </div>
         </div>
     )
 }

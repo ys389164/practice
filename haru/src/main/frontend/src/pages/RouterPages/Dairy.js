@@ -1,10 +1,11 @@
-import {useDispatch} from "react-redux";
-import {changeModalName, modalStateOn} from "../../slices/modalState";
-import dayGridPlugin from "@fullcalendar/daygrid";
+import { useDispatch } from "react-redux";
+import { changeModalName, modalStateOn } from "../../slices/modalState";
+import { useState } from "react";
 import FullCalendar from "@fullcalendar/react";
-import React from "react";
-
+import dayGridPlugin from '@fullcalendar/daygrid';
 export default function Dairy() {
+    const [openClaenderState, setOpenClaenderState] = useState(false);
+
     const dispatch = useDispatch();
 
     const changeModal = (modalName) => {
@@ -13,27 +14,28 @@ export default function Dairy() {
     }
 
     return (
-        <div className="dairyContainer" id="dairyContainer">
-            <section className="dairyCalendarWrap">
-                <div className="dairyCalendar"><FullCalendar
+        <div className={openClaenderState ? "dairyContainer active" : "dairyContainer"} id="dairyContainer">
+            <section className="dairyCalendarWrap" onClick={()=>{setOpenClaenderState(true)}}>
+                <FullCalendar
                     plugins={[dayGridPlugin]}
                     initialView="dayGridMonth"
-                    height="100%"
-                    contentHeight='100px'
+                    height="90%"
                     events={[
-                        {date: '2024-08-01', extendedProps: {stamp: '✔'}},
+                        {date: '2024-08-01', extendedProps: {stamp: '✔️'}},
                         {date: '2024-08-02', extendedProps: {stamp: '❌'}}
                     ]}
                     eventContent={renderEventContent}
-                /></div>
+                />
             </section>
+
             <section className="diaryInfo" id="diaryInfo">
                 <div className="continuityDay" id="continuityDay">N일 연속 작성 중!</div>
-                <div className="clickedContents" id="clickedContents" onClick={() => {
-                    changeModal('DairyWriting')
-                }}>클릭된 날 일기 내용
-                </div>
+                <div className="clickedContents" id="clickedContents" onClick={()=>{changeModal('DairyWriting')}}>클릭된 날 일기 내용</div>
             </section>
+
+            <div className="dairyCalenderCloseBtnWrap">
+                <button type="button" className="calenderCloseBtn" onClick={()=>{setOpenClaenderState(false)}}>X</button>
+            </div>
         </div>
     )
 }

@@ -5,63 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17780d87-46ba-4ea3-b44f-09e120926464" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/componentsStyles/dairyModal.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/componentsStyles/dairyWriting.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/componentsStyles/footer.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/componentsStyles/header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/mobile.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/dairy.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/home.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/memo.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/memoBundle.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/memoDetail.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/memoWriting.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/setting.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/settingAnnounce.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/settingBackup.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/settingExportToText.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/settingFaq.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/settingUser.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/pcStyles/pc.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/reset.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/val.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/components/modals/DairyModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/Dairy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/Memo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/Setting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/memo/MemoBundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/memo/MemoDetail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/memo/MemoWriting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/setting/SettingAnnounce.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/setting/SettingBackup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/setting/SettingExportToText.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/setting/SettingFaq.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/setting/SettingUser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/slices/modalState.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/stores/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/node_modules.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/components/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/components/modals/DairyWriting.js" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/components/modals/DairyWriting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/components/modals/DiaryModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/components/modals/SettingAnnounce.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/components/modals/SettingBackup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/components/modals/SettingBundleOfMemo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/components/modals/SettingExportToText.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/components/modals/SettingFaq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/components/modals/SettingUser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/Dairy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/Memo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/Setting.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/memo/MemoDetail.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/memo/MemoWriting.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/componentsStyles/dairyWriting.scss" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/componentsStyles/dairyWriting.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/componentsStyles/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/componentsStyles/footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/mobile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/mobile.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/dairy.scss" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/dairy.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/assets/styles/mobileStyles/pagesStyles/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/Dairy.js" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/Dairy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/haru/src/main/frontend/src/pages/RouterPages/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,36 +57,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Gradle.Build haru.executor": "Run",
-    "Gradle.E:/vs_code/project2/practice/haru/build.gradle.executor": "Run",
-    "Gradle.haru [dependencies].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.HaruApplication.executor": "Run",
-    "git-widget-placeholder": "0724",
-    "ignore.virus.scanning.warn.message": "true",
-    "ignore_missing_gitignore": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/vs_code/project2/practice/haru/src/main/frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Gradle.Build haru.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.E:/vs_code/project2/practice/haru/build.gradle.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.haru [dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.HaruApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;0724&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/vs_code/project2/practice/haru/src/main/frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\vs_code\project2\practice\haru\src\main\frontend" />
@@ -225,7 +176,8 @@
       <workItem from="1721653750222" duration="1215000" />
       <workItem from="1721654992099" duration="2025000" />
       <workItem from="1721657057469" duration="3797000" />
-      <workItem from="1722088367119" duration="1027000" />
+      <workItem from="1722088367119" duration="2405000" />
+      <workItem from="1722426436366" duration="2229000" />
     </task>
     <servers />
   </component>
