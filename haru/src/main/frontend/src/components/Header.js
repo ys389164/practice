@@ -1,26 +1,22 @@
+import React from "react";
+import { Link } from 'react-router-dom';
+import logo from "../assets/imgs/logo.png";
+
 export default function Header() {
     return (
         <header className="header" id="header">
             <h1 className="logo" id="logo">
-                <a href="#">
+                <Link to="/">
                     {/* header */}
-                    {/* <img src="/assets/img/logo.png"/> */}
-                    <img src="#" alt="로고이미지" />
-                </a>
+                    <img src={logo} alt="로고이미지" />
+                </Link>
             </h1>
 
-            <div class="goSettingBtnWrap">
-                <button type="button" className="settingBtn" id="settingBtn">Setting</button>
+            <div className="goSettingBtnWrap">
+                <Link to="/setting" className="settingBtnLink">
+                    <button type="button" className="settingBtn"  id="settingBtn">Setting</button>
+                </Link>
             </div>
-            {/* <nav className="option" id="option">
-                <ul>
-                    <li className="userSetting" id="userSetting">
-                        <a href="#"><img src=""/></a>
-                    </li>
-                    <li className="Setting" id="Setting">
-                        <a href="#"> <img src=""/></a>
-                    </li>
-                </ul>
-            </nav> */}
-        </header>)
+        </header>
+    )
 }

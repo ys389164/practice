@@ -1,23 +1,29 @@
-import { useState } from "react"
+import React, {useState} from "react"
+import {useNavigate} from "react-router-dom";
 
 export default function SettingAnnounce() {
+
+    const history = useNavigate();
+    const goBack = () => {
+        history('/setting');
+    }
     const [announceItemList, setAnnounceItemList] = useState([
         {
-            id:1,
+            id: 1,
             version: "0.0.1v",
             title: "제목1",
             contents: "내용1",
             active: false
         },
         {
-            id:2,
+            id: 2,
             version: "0.0.2v",
             title: "제목2",
             contents: "내용2",
             active: false
         },
         {
-            id:3,
+            id: 3,
             version: "0.0.3v",
             title: "제목3",
             contents: "내용3",
@@ -25,17 +31,18 @@ export default function SettingAnnounce() {
         },
 
     ]);
-    
-    function changeActiveState(listItem, listIdx){
+
+    function changeActiveState(listItem, listIdx) {
         const newAnnounceItemList = [...announceItemList];
         newAnnounceItemList[listIdx].active = !announceItemList[listIdx].active
         setAnnounceItemList(newAnnounceItemList)
     }
+
     return (
         <div className="settingAnnounceContainer" id="settingAnnounceContainer">
             <div className="settingAnnounceTop">
                 <h2> 공지사항</h2>
-                <button type="button"> 뒤로가기</button>
+                <button type="button" onClick={goBack}> 뒤로가기</button>
             </div>
 
             <section>
@@ -43,15 +50,18 @@ export default function SettingAnnounce() {
                     <ul className="announceList" id="announceList">
 
                         {
-                            announceItemList.map((listItem, listIdx)=>(
-                                <li key={listItem + listIdx + listItem.id} className={ listItem.active ? "announceItem active" : "announceItem"}>
-                                    <button type="button" onClick={()=>{changeActiveState(listItem, listIdx)}} className="openAnnounceContents">
+                            announceItemList.map((listItem, listIdx) => (
+                                <li key={listItem + listIdx + listItem.id}
+                                    className={listItem.active ? "announceItem active" : "announceItem"}>
+                                    <button type="button" onClick={() => {
+                                        changeActiveState(listItem, listIdx)
+                                    }} className="openAnnounceContents">
                                         <h3>{listItem.title}</h3>
                                     </button>
                                     <div className="contents">
                                         <p>{listItem.contents}</p>
                                     </div>
-                                </li>   
+                                </li>
                             ))
                         }
                         {/* <li className={ announceItemList[0].active ? "announceItem active" : "announceItem"}>

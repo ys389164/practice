@@ -1,8 +1,16 @@
+import React from "react";
+import {useNavigate} from "react-router-dom";
+
 export default function SettingUser() {
+    const history = useNavigate();
+    const goBack = () =>{
+        history('/setting');
+    }
+
     return (
         <div className="settingUserContainer" id="settingUserContainer">
-            <div className="settingUserContainerTop">
-                <button type="button"> 뒤로가기</button>
+            <div className="settingUserContainerTop" onClick={goBack}>
+                <button type="button" onClick={goBack}> 뒤로가기</button>
                 <h2> 계정</h2>
             </div>
 

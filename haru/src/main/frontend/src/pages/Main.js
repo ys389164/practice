@@ -1,3 +1,5 @@
+import {Route, Routes} from 'react-router-dom';
+
 import Home from './RouterPages/Home';
 import Dairy from './RouterPages/Dairy';
 import Setting from "./RouterPages/Setting";
@@ -15,31 +17,20 @@ import MemoBundle from './RouterPages/memo/MemoBundle';
 export default function Main() {
     return (
         <div className="mainContainer">
-             {/*<Dairy></Dairy>*/}
-             {/*<Home></Home>*/}
-            <Setting></Setting>
-            {/* <SettingUser></SettingUser> */}
-            {/* <SettingBackup></SettingBackup> */}
-            {/* <SettingExportToText></SettingExportToText> */}
-            {/* <SettingFaq></SettingFaq> */}
-            {/* <SettingAnnounce></SettingAnnounce> */}
-            {/* <Memo></Memo> */}
-            {/* <MemoWriting></MemoWriting> */}
-            {/* <MemoDetail></MemoDetail> */}
-            {/* <MemoBundle></MemoBundle> */}
-
-
-            {/* 
-            react-router-dom 추가시 해야할 것 index.js에서도 있음
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/dairy" element={<Dairy />} />
-                <Route path="/memo" element={<Memo />} />
-                <Route path="/memo/memo-write" element={<MemoWriting />} />
-                <Route path="/setting" element={<Setting />} />
+                <Route path="/" element={<Home/>}/>
+                <Route path="/dairy" element={<Dairy/>}/>
+                <Route path="/memo" element={<Memo/>}/>
+                <Route path="/memo/memo-write" element={<MemoWriting/>}/>
+                <Route path="/setting" element={<Setting/>}/>
+                <Route path="/setting/user" element={<SettingUser/>}/>
+                <Route path="/setting/backup" element={<SettingBackup/>}/>
+                <Route path="/setting/export" element={<SettingExportToText/>}/>
+                <Route path="/setting/faq" element={<SettingFaq/>}/>
+                <Route path="/setting/announce" element={<SettingAnnounce/>}/>
+                <Route path="/memo/detail" element={<MemoDetail/>}/>
+                <Route path="/memo/bundle" element={<MemoBundle/>}/>
             </Routes>
-            
-            */}
         </div>
     )
 }

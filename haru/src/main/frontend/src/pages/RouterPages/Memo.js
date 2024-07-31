@@ -2,14 +2,20 @@ export default function Memo() {
     return (
         <div className="memoContainer" id="memoContainer">
             
-            <div class="memoRelatedWrap">
+            <div className="memoRelatedWrap">
                 <section className="searchContainer">
                     <div>
                         <div className="inputBox">
                             <input type="text" id="inputText" className="inputText" name="searchKeyword"
-                                   maxlength="20" placeholder="검색어를 입력하세요" value=""/>
+                                   maxLength="20" placeholder="검색어를 입력하세요" value=""/>
                             <button type="button" id="searchBtn" className="searchBtn">검색</button>
                         </div>
+
+{/*                        <div className="inputBox">
+                            <input type="text" id="inputText" className="inputText" name="searchKeyword" maxLength="20"
+                                   placeholder="검색어를 입력하세요" value=""/>
+                            <button type="button" id="searchBtn" className="searchBtn">검색</button>
+                        </div>*/}
                     </div>
                 </section>
                 <section className="memoFolderContainer">

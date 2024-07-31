@@ -1,31 +1,39 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import home from '../assets/imgs/home.png';
+import diary from '../assets/imgs/diary.png';
+import memo from '../assets/imgs/memo.png';
+import calendar from '../assets/imgs/canlendar.png';
+import dDay from '../assets/imgs/d-day.png';
+
 export default function Footer() {
     return (
         <footer className="footer">
             <ul className="footer__list">
                 <li className="diaryTab">
-                    <a href="#">일기
-                        <img src="#" alt=""/>
-                    </a>
+                    <Link to="/dairy">
+                        <img src={diary} alt="일기"/>
+                    </Link>
                 </li>
                 <li className="memoTab">
-                    <a href="#">메모
-                        <img src="#" alt=""/>
-                    </a>
+                    <Link to="/memo">
+                        <img src={memo} alt="메모"/>
+                    </Link>
                 </li>
                 <li className="mainTab">
-                    <a href="#">main
-                        <img src="#" alt=""/>
-                    </a>
+                    <Link to="/">
+                        <img src={home} alt="홈"/>
+                    </Link>
                 </li>
                 <li className="calendarTab">
-                    <a href="#">calendar
-                        <img src="#" alt=""/>
-                    </a>
+                    <Link to="/calendar">
+                        <img src={calendar} alt="캘린더"/>
+                    </Link>
                 </li>
                 <li className="DdayTab">
-                    <a href="#">d-day
-                        <img src="#" alt=""/>
-                    </a>
+                    <Link to="/dday">
+                        <img src={dDay} alt="디데이"/>
+                    </Link>
                 </li>
             </ul>
         </footer>

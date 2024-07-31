@@ -1,22 +1,27 @@
-import { useState } from "react"
+import React, {useState} from "react"
+import {useNavigate} from "react-router-dom";
 
 export default function SettingFaq() {
+    const history = useNavigate();
+    const goBack = () => {
+        history('/setting');
+    }
     const [qnaList, setQnaList] = useState({
-        qustion1:false,
-        qustion2:false,
-        qustion3:false,
-        qustion4:false
+        qustion1: false,
+        qustion2: false,
+        qustion3: false,
+        qustion4: false
     })
 
     const clickBtnEvt = (qustions) => {
-        setQnaList({...qnaList, [qustions]:!qnaList[qustions]})
+        setQnaList({...qnaList, [qustions]: !qnaList[qustions]})
     }
-    
+
     return (
         <div className="settingFaqContainer" id="settingFaqContainer">
             <div className="settingFaqTop">
                 <h2>FAQ</h2>
-                <button type="button"> 뒤로가기</button>
+                <button type="button" onClick={goBack}> 뒤로가기</button>
             </div>
 
             <section>
@@ -30,16 +35,18 @@ export default function SettingFaq() {
                 <div className="faqList" id="faqList">
                     <ul className="qaList" id="qaList">
                         {
-                            Object.keys(qnaList).map((mapItem, mapIndex)=>(
-                                <li key={mapItem + mapIndex} className={ qnaList[mapItem] ? "qaItem active" : "qaItem"}>
-                                    <button type="button" onClick={()=>{clickBtnEvt(mapItem);}} className="">
-                                        <img src="#" alt="QIcon" />
+                            Object.keys(qnaList).map((mapItem, mapIndex) => (
+                                <li key={mapItem + mapIndex} className={qnaList[mapItem] ? "qaItem active" : "qaItem"}>
+                                    <button type="button" onClick={() => {
+                                        clickBtnEvt(mapItem);
+                                    }} className="">
+                                        <img src="#" alt="QIcon"/>
                                         <span className="qText">Q</span>
-                                        <img src="#" alt="showAnswer" />
+                                        <img src="#" alt="showAnswer"/>
                                     </button>
 
                                     <div className="answerWrap">
-                                        <img src="#" alt="aIcon" className="aIcon" />
+                                        <img src="#" alt="aIcon" className="aIcon"/>
 
                                         <div className="aText">
                                             <p>해위</p>

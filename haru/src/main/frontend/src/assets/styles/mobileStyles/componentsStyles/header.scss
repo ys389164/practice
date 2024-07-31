@@ -18,7 +18,7 @@
         &>img{
             display: block;
             // 임시사이즈
-            @include setWH(80px, 45px);
+            @include setWH(80px, 55px);
 
             border: 1px solid;
             border-radius: 50px;
@@ -35,9 +35,13 @@
         width: 50%;
 
         @include displayJA(flex-end, center);
-        .settingBtn{
+        .settingBtnLink{
             width: 100px;
             height: 100%;
+
+            .settingBtn{
+                @include setWH(100%, 100%);
+            }
         }
     }
 }

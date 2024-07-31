@@ -79,7 +79,7 @@ export default function MemoBundle() {
                         </div>
                     ))
                 }
-                {/* <div class="writingDayBox">
+                {/* <div className="writingDayBox">
                     <h3 className="writingDay" id="writingDay">2024-07-27</h3>
                     <ul>
                         <li>

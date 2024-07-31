@@ -7,6 +7,12 @@
 
         height: 50%;
 
+        transition: 0.5s;
+
+        &:hover{
+            height: 80%;
+        }
+
         .calendar{
             width: 100%;
             height: 100%;
@@ -15,9 +21,21 @@
         }
     }
 
+    .calendarWrap:hover + .infoWrap{
+        transform: translateY(100px);
+        height: 0%;
+
+        opacity: 0;
+    }
+
     // 캘린더 외
     .infoWrap{
-        height: 50%;
+
+        transition: 0.5s;
+        transform-origin: bottom;
+        height: 40%;
+
+        overflow: hidden;
 
         // 최근 일정 & 제일 가까운 일정
         .recentSchedule{
@@ -42,7 +60,7 @@
                 border: 1px solid;
 
                 @include displayJA(center,_);
-                
+
             }
         }
     }

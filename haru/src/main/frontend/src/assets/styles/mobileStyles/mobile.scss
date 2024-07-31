@@ -17,3 +17,58 @@
 @import './pagesStyles/settingExportToText.scss';
 @import './pagesStyles/settingFaq.scss';
 @import './pagesStyles/settingAnnounce.scss';
+
+.fc-theme-standard th,
+.fc-theme-standard .fc-scrollgrid{
+  border: 0;
+}
+.fc-scrollgrid-sync-table, .fc-day{
+  border: 1px solid #ddd !important;
+  border-top: 0 !important;
+}
+
+.fc-col-header{
+  border: 1px solid #ddd !important;
+  border-bottom: 0 !important;
+}
+
+
+/* 전체 헤더 높이 조정 */
+.fc-header-toolbar.fc-toolbar {
+  height: 60px; /* 원하는 높이 값 */
+
+  margin-left: 0;
+  box-sizing: border-box; /* 패딩과 테두리를 포함하여 높이 계산 */
+
+  display: flex;
+  justify-content: space-between;
+
+  .fc-toolbar-chunk{
+    &:nth-child(1){
+      width: 50%;
+    }
+
+    &:nth-child(3){
+      width: 50%;
+
+      display: flex;
+    }
+    margin: 0 auto;
+  }
+}
+
+/* 헤더 제목 크기 조정 */
+.fc-header-toolbar .fc-toolbar-title {
+  font-size: 20px; /* 제목 글꼴 크기 조정 */
+}
+
+.fc-toolbar-title{
+  font-size: 1.1rem !important;
+}
+
+/* 헤더 버튼 크기 조정 */
+.fc-header-toolbar .fc-button {
+  height: 40px; /* 버튼 높이 조정 */
+  line-height: 40px; /* 버튼의 텍스트 세로 정렬 */
+  font-size: 0.9rem; /* 버튼 텍스트 크기 조정 */
+}

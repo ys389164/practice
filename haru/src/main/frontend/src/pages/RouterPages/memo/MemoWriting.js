@@ -9,7 +9,7 @@ export default function MemoWriting() {
 
     return (
         <div className="memoWritingContainer" id="memoWritingContainer">
-            <div class="memoWbuttonWraps">
+            <div className="memoWbuttonWraps">
                 <button className="memoWBackRouter" id="memoWBackRouter">뒤로가기</button>
                 <button className="uploadBtn" id="uploadBtn">완룟</button>
             </div>

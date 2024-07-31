@@ -1,9 +1,18 @@
+import React from "react";
+import {useNavigate} from "react-router-dom";
+
+
 export default function SettingBackup(){
+    const history = useNavigate();
+    const goBack = () =>{
+        history('/setting');
+    }
+
     return (
         <div className="settingBackupContainer" id="settingBackupContainer">
             <div className="settingUserBackupTop">
                 <h2> 계정</h2>
-                <button type="button"> 뒤로가기</button>
+                <button type="button" onClick={goBack}> 뒤로가기</button>
             </div>
 
             <section className="settingUserBackupMid">
