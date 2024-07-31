@@ -17,16 +17,16 @@ export default function Main() {
         <div className="mainContainer">
              {/*<Dairy></Dairy>*/}
              {/*<Home></Home>*/}
-            {/*<Setting></Setting>*/}
-            {/* <SettingUser></SettingUser>*/}
-            {/* <SettingBackup></SettingBackup>*/}
-            {/* <SettingExportToText></SettingExportToText>*/}
-            {/* <SettingFaq></SettingFaq>*/}
-            {/* <SettingAnnounce></SettingAnnounce>*/}
-            {/* <Memo></Memo>*/}
-            {/* <MemoWriting></MemoWriting>*/}
-            {/* <MemoDetail></MemoDetail>*/}
-            {/* <MemoBundle></MemoBundle>*/}
+            <Setting></Setting>
+            {/* <SettingUser></SettingUser> */}
+            {/* <SettingBackup></SettingBackup> */}
+            {/* <SettingExportToText></SettingExportToText> */}
+            {/* <SettingFaq></SettingFaq> */}
+            {/* <SettingAnnounce></SettingAnnounce> */}
+            {/* <Memo></Memo> */}
+            {/* <MemoWriting></MemoWriting> */}
+            {/* <MemoDetail></MemoDetail> */}
+            {/* <MemoBundle></MemoBundle> */}
 
 
             {/* 
