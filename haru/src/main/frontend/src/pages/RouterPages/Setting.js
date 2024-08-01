@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Setting() {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(true)
     const [nickname, setNickname] = useState('유우저')
 
     useEffect(() => {
