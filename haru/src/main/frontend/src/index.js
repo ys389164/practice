@@ -12,9 +12,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     // <BrowserRouter> react-router-dom 사용시 추가
     <BrowserRouter>
-    <Provider store={store}>
-    <App />
-    </Provider>
+        <Provider store={store}>
+            <App />
+        </Provider>
     </BrowserRouter>
 );
 

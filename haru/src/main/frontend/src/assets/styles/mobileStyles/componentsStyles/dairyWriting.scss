@@ -1,4 +1,4 @@
-.dairyWritingContainer{
+.dairyWritingContainer {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,7 +10,7 @@
 
     z-index: 10;
 
-    .dairyFormWrap{
+    .dairyFormWrap {
         height: 10%;
 
         padding: 10px;
@@ -20,12 +20,13 @@
         align-items: center;
         gap: 10px;
 
-        &>button,&>p{
+        &>button,
+        &>p {
             width: 100px;
             height: 50px;
         }
 
-        p{
+        p {
             width: 200px;
 
             display: flex;
@@ -36,10 +37,10 @@
 
 
     // 작성칸
-    .writingBox{
+    .writingBox {
         height: 90%;
 
-        .writingContents{
+        .writingContents {
             padding: 10px;
 
             width: 100%;
@@ -48,14 +49,14 @@
             resize: none;
         }
 
-        &>div{
+        &>div {
             display: flex;
             justify-content: space-between;
             align-items: center;
 
             height: 20%;
 
-            &>div{
+            &>div {
                 width: 100%;
                 height: 100%;
 
@@ -65,24 +66,24 @@
                 justify-content: center;
                 align-items: center;
 
-                &:nth-last-child(1){
+                &:nth-last-child(1) {
                     border: 0;
                 }
 
-                input{
+                input {
                     display: block;
                     width: 80%;
                     max-width: 150px;
                     aspect-ratio: 1/1;
 
-                    border: 1px solid ;
+                    border: 1px solid;
 
                     &::file-selector-button {
                         display: none;
                     }
                 }
 
-                img{
+                img {
                     display: block;
                     width: 50%;
                     max-width: 120px;

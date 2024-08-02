@@ -1,45 +1,45 @@
 import { useState } from "react"
 
 export default function MemoBundle() {
-    const [testMemoDate, setTestMemoDate] = useState(["2024-07-27","2024-07-26","2024-07-25"])
+    const [testMemoDate, setTestMemoDate] = useState(["2024-07-27", "2024-07-26", "2024-07-25"])
     const [testMemoList, setTestMemoList] = useState([
         {
-            date:"2024-07-27",
+            date: "2024-07-27",
             title: "제목1",
             contents: "내용1"
         },
         {
-            date:"2024-07-27",
+            date: "2024-07-27",
             title: "제목2",
             contents: "내용2"
         },
         {
-            date:"2024-07-26",
+            date: "2024-07-26",
             title: "제목3",
             contents: "내용3"
         },
         {
-            date:"2024-07-26",
+            date: "2024-07-26",
             title: "제목4",
             contents: "내용5"
         },
         {
-            date:"2024-07-26",
+            date: "2024-07-26",
             title: "제목6",
             contents: "내용6"
         },
         {
-            date:"2024-07-25",
+            date: "2024-07-25",
             title: "제목7",
             contents: "내용7"
         },
         {
-            date:"2024-07-25",
+            date: "2024-07-25",
             title: "제목8",
             contents: "내용8"
         },
         {
-            date:"2024-07-25",
+            date: "2024-07-25",
             title: "제목9",
             contents: "내용9"
         }
@@ -52,7 +52,7 @@ export default function MemoBundle() {
                 <div>
                     <div className="inputBox">
                         <input type="text" id="inputText" className="inputText" name="searchKeyword"
-                            maxlength="20" placeholder="검색어를 입력하세요" value=""/>
+                            maxlength="20" placeholder="검색어를 입력하세요" value="" />
                         <button type="button" id="searchBtn" className="searchBtn">검색</button>
                     </div>
                 </div>
@@ -62,19 +62,19 @@ export default function MemoBundle() {
                 {/* class writingDayBox for문으로 돌려야함 (날짜) */}
 
                 {
-                    testMemoDate.map((dateItems, dateIndex)=>(
+                    testMemoDate.map((dateItems, dateIndex) => (
                         <div key={dateItems + dateIndex} className="writingDayBox">
                             <h3>{dateItems}</h3>
                             <ul>
-                            {
-                                testMemoList.filter(listItems=> listItems.date === dateItems)
-                                .map((mapListItem, mapListItemIdx)=>(
-                                    <li key={dateItems + mapListItemIdx + mapListItem}>
-                                        <p className="title" id="title">{mapListItem.title}</p>
-                                        <p className="contents" id="contents">{mapListItem.contents}</p>
-                                    </li>
-                                ))
-                            }
+                                {
+                                    testMemoList.filter(listItems => listItems.date === dateItems)
+                                        .map((mapListItem, mapListItemIdx) => (
+                                            <li key={dateItems + mapListItemIdx + mapListItem}>
+                                                <p className="title" id="title">{mapListItem.title}</p>
+                                                <p className="contents" id="contents">{mapListItem.contents}</p>
+                                            </li>
+                                        ))
+                                }
                             </ul>
                         </div>
                     ))

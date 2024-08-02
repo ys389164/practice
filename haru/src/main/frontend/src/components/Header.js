@@ -14,7 +14,7 @@ export default function Header() {
 
             <div className="goSettingBtnWrap">
                 <Link to="/setting" className="settingBtnLink">
-                    <button type="button" className="settingBtn"  id="settingBtn">Setting</button>
+                    <button type="button" className="settingBtn" id="settingBtn">Setting</button>
                 </Link>
             </div>
         </header>

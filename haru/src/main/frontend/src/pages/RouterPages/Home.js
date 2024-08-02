@@ -7,14 +7,14 @@ export default function Home() {
 
     return (
         <div className={calenderOpenState ? "homeContainer active" : "homeContainer"} id="homeContainer">
-            <section className="calendarWrap" onClick={()=>{setCalenderOpenState(true)}}>
+            <section className="calendarWrap" onClick={() => { setCalenderOpenState(true) }}>
                 <FullCalendar
                     plugins={[dayGridPlugin]}
                     initialView="dayGridMonth"
                     height="90%"
                     events={[
-                        {date: '2024-08-01', extendedProps: {stamp: '✔️'}},
-                        {date: '2024-08-02', extendedProps: {stamp: '❌'}}
+                        { date: '2024-08-01', extendedProps: { stamp: '✔️' } },
+                        { date: '2024-08-02', extendedProps: { stamp: '❌' } }
                     ]}
                     eventContent={renderEventContent}
                 />
@@ -28,7 +28,7 @@ export default function Home() {
             </section>
 
             <div className='scheduleBtnWrap'>
-                <button type='button' className='showSchedule' onClick={()=>{setCalenderOpenState(false)}}>X</button>
+                <button type='button' className='showSchedule' onClick={() => { setCalenderOpenState(false) }}>X</button>
             </div>
         </div>
     )

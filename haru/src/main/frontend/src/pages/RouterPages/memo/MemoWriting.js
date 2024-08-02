@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function MemoWriting() {
     const [inputTextVlaue, setInputTextVlaue] = useState('');
 
-    function searchInputValue(evt){
+    function searchInputValue(evt) {
         setInputTextVlaue(evt.target.value);
     }
 
@@ -16,7 +16,7 @@ export default function MemoWriting() {
 
             <div className="container" id="container">
                 <div className="memotitle" id="memotitle">
-                    <input id="inputMemoTitme" className={ inputTextVlaue ? "inputMemoTitme active" : "inputMemoTitme"} type="text" onKeyUp={searchInputValue} />
+                    <input id="inputMemoTitme" className={inputTextVlaue ? "inputMemoTitme active" : "inputMemoTitme"} type="text" onKeyUp={searchInputValue} />
                     <label for="inputMemoTitme">제목</label>
                 </div>
 

@@ -12,27 +12,27 @@ export default function Footer() {
             <ul className="footer__list">
                 <li className="diaryTab">
                     <Link to="/dairy">
-                        <img src={diary} alt="일기"/>
+                        <img src={diary} alt="일기" />
                     </Link>
                 </li>
                 <li className="memoTab">
                     <Link to="/memo">
-                        <img src={memo} alt="메모"/>
+                        <img src={memo} alt="메모" />
                     </Link>
                 </li>
                 <li className="mainTab">
                     <Link to="/">
-                        <img src={home} alt="홈"/>
+                        <img src={home} alt="홈" />
                     </Link>
                 </li>
                 <li className="calendarTab">
                     <Link to="/calendar">
-                        <img src={calendar} alt="캘린더"/>
+                        <img src={calendar} alt="캘린더" />
                     </Link>
                 </li>
                 <li className="DdayTab">
                     <Link to="/dday">
-                        <img src={dDay} alt="디데이"/>
+                        <img src={dDay} alt="디데이" />
                     </Link>
                 </li>
             </ul>

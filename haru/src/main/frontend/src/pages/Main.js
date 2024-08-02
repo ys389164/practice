@@ -1,4 +1,4 @@
-import {Route, Routes} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Home from './RouterPages/Home';
 import Dairy from './RouterPages/Dairy';
@@ -18,18 +18,18 @@ export default function Main() {
     return (
         <div className="mainContainer">
             <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/dairy" element={<Dairy/>}/>
-                <Route path="/memo" element={<Memo/>}/>
-                <Route path="/memo/memo-write" element={<MemoWriting/>}/>
-                <Route path="/setting" element={<Setting/>}/>
-                <Route path="/setting/user" element={<SettingUser/>}/>
-                <Route path="/setting/backup" element={<SettingBackup/>}/>
-                <Route path="/setting/export" element={<SettingExportToText/>}/>
-                <Route path="/setting/faq" element={<SettingFaq/>}/>
-                <Route path="/setting/announce" element={<SettingAnnounce/>}/>
-                <Route path="/memo/detail" element={<MemoDetail/>}/>
-                <Route path="/memo/bundle" element={<MemoBundle/>}/>
+                <Route path="/" element={<Home />} />
+                <Route path="/dairy" element={<Dairy />} />
+                <Route path="/memo" element={<Memo />} />
+                <Route path="/memo/memo-write" element={<MemoWriting />} />
+                <Route path="/setting" element={<Setting />} />
+                <Route path="/setting/user" element={<SettingUser />} />
+                <Route path="/setting/backup" element={<SettingBackup />} />
+                <Route path="/setting/export" element={<SettingExportToText />} />
+                <Route path="/setting/faq" element={<SettingFaq />} />
+                <Route path="/setting/announce" element={<SettingAnnounce />} />
+                <Route path="/memo/detail" element={<MemoDetail />} />
+                <Route path="/memo/bundle" element={<MemoBundle />} />
             </Routes>
         </div>
     )

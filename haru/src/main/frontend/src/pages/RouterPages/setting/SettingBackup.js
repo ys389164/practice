@@ -1,10 +1,10 @@
 import React from "react";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
-export default function SettingBackup(){
+export default function SettingBackup() {
     const history = useNavigate();
-    const goBack = () =>{
+    const goBack = () => {
         history('/setting');
     }
 

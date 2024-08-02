@@ -1,5 +1,5 @@
-import React, {useState} from "react"
-import {useNavigate} from "react-router-dom";
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 export default function SettingAnnounce() {
 
@@ -37,7 +37,6 @@ export default function SettingAnnounce() {
         newAnnounceItemList[listIdx].active = !announceItemList[listIdx].active
         setAnnounceItemList(newAnnounceItemList)
     }
-
     return (
         <div className="settingAnnounceContainer" id="settingAnnounceContainer">
             <div className="settingAnnounceTop">

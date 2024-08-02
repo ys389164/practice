@@ -1,10 +1,10 @@
 import React from "react";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
-export default function SettingExportToText(){
+export default function SettingExportToText() {
     const history = useNavigate();
-    const goBack = () =>{
+    const goBack = () => {
         history('/setting');
     }
     return (
@@ -14,7 +14,7 @@ export default function SettingExportToText(){
                 <button type="button" onClick={goBack}> 뒤로가기</button>
             </div>
             <section>
-            {/*    종류, 기간, 정렬, 내보내기*/}
+                {/*    종류, 기간, 정렬, 내보내기*/}
                 <div className="selectExportWrap">
                     <button className="exportMemo">메모 내보내기</button>
                     <button className="exportDairy">일기 내보내기</button>

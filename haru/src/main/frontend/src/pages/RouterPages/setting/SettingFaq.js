@@ -1,5 +1,5 @@
-import React, {useState} from "react"
-import {useNavigate} from "react-router-dom";
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 export default function SettingFaq() {
     const history = useNavigate();
@@ -14,7 +14,7 @@ export default function SettingFaq() {
     })
 
     const clickBtnEvt = (qustions) => {
-        setQnaList({...qnaList, [qustions]: !qnaList[qustions]})
+        setQnaList({ ...qnaList, [qustions]: !qnaList[qustions] })
     }
 
     return (
@@ -40,13 +40,13 @@ export default function SettingFaq() {
                                     <button type="button" onClick={() => {
                                         clickBtnEvt(mapItem);
                                     }} className="">
-                                        <img src="#" alt="QIcon"/>
+                                        <img src="#" alt="QIcon" />
                                         <span className="qText">Q</span>
-                                        <img src="#" alt="showAnswer"/>
+                                        <img src="#" alt="showAnswer" />
                                     </button>
 
                                     <div className="answerWrap">
-                                        <img src="#" alt="aIcon" className="aIcon"/>
+                                        <img src="#" alt="aIcon" className="aIcon" />
 
                                         <div className="aText">
                                             <p>해위</p>
