@@ -1,87 +1,80 @@
 package com.haru.controller;
 
+import com.haru.entity.Folderlist;
+import com.haru.entity.Memo;
 import com.haru.service.MemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/api")
+import java.util.List;
+
+@RestController
+@RequestMapping("/api")
 public class MemoController {
 
     @Autowired
-    MemoService memoService;
+    private MemoService memoService;
 
-//    메인(폴더) 페이지
-
+    // 폴더 전체 조회
     @GetMapping("/folders")
-    public String folders() {
-//        폴더 조회
-        return "folders";
+    public List<Folderlist> getAllFolders() {
+        return memoService.getAllFolders();
     }
 
+    // 폴더 생성
     @PostMapping("/folders")
-    public String foldersPost() {
-//        폴더 추가
-        return "folders";
+    public Folderlist createFolder(@RequestBody Folderlist folderlist) {
+        return memoService.createFolder(folderlist);
     }
-    
+
+    // 폴더 수정
     @PutMapping("/folders")
-    public String foldersPut() {
-//        폴더 수정
-        return "folders";
-    }
-    
-    @DeleteMapping("/folders")
-    public String foldersDelete() {
-//        폴더 삭제 & 하위도 같이
-        return "folders";
+    public Folderlist updateFolder(@RequestBody Folderlist folderlist) {
+        return memoService.updateFolder(folderlist.getFolderId(), folderlist);
     }
 
-    @PostMapping("/notes")
-    public String notes() {
-//        기본 폴더에 메모 작성
-        return "notes";
+    // 폴더 삭제
+    @DeleteMapping("/folders/{folderId}")
+    public void deleteFolder(@PathVariable Long folderId) {
+        memoService.deleteFolder(folderId);
     }
 
 
-//    -----------------
-//    폴더 내 메모 리스트 페이지
-
+    // 폴더 내 메모 리스트 페이지
+    // 폴더 내 메모들 조회
     @GetMapping("/folders/{folderId}/notes")
-    public String notes(@PathVariable("folderId") Long folderId) {
-//        특정 폴더 내 메모 목록 조회
-        return "notes";
+    public List<Memo> getNotesByFolderId(@PathVariable Long folderId) {
+        return memoService.getNotesByFolderId(folderId);
     }
 
+    // 폴더 내부에서 메모 생성
     @PostMapping("/folders/{folderId}/notes")
-    public String createNotes(@PathVariable("folderId") Long folderId){
-//        폴더 내부에서 메모 추가
-        return "notes";
+    public Memo createNoteInFolder(@PathVariable Long folderId, @RequestBody Memo memo) {
+        return memoService.createNoteInFolder(folderId, memo);
     }
 
-    @DeleteMapping("/folders/folderId/notes/{noteId}")
-    public String deleteNotes(@PathVariable("noteId") Long noteId) {
-//        폴더 내부에서 메모 제거
-        return "notes";
+    // 노트 상세 페이지
+    // 메모 조회
+    @GetMapping("/folders/{folderId}/notes/{noteId}")
+    public Memo getNoteDetails(@PathVariable Long folderId, @PathVariable Long noteId) {
+        return memoService.getNoteDetails(folderId, noteId);
     }
 
-
-//----------------------
-//    상세 페이지, 조회
-    @GetMapping("/notes/{folderId}/notes/{noteId}")
-    public String notes(@PathVariable("folderId") Long folderId,@PathVariable("noteId") Long noteId){
-        return "notes";
+    // 메모 수정
+    @PutMapping("/folders/{folderId}/notes/{noteId}")
+    public Memo updateNoteDetails(@PathVariable Long folderId, @PathVariable Long noteId, @RequestBody Memo memo) {
+        return memoService.updateNoteDetails(folderId, noteId, memo);
     }
 
-//    수정 페이지
-    @PutMapping("/notes/{folderId}/notes/{noteId}")
-    public String updateNotes(@PathVariable("folderId") Long folderId, @PathVariable("noteId") Long noteId) {
-        return "notes";
+    // 메모 삭제
+    @DeleteMapping("/folders/{folderId}/notes/{noteId}")
+    public void deleteNoteDetails(@PathVariable Long folderId, @PathVariable Long noteId) {
+        memoService.deleteNoteDetails(folderId, noteId);
     }
 
-    @DeleteMapping("/notes/{folderId}/notes/{noteId}")
-    public String deleteNotes(@PathVariable("folderId") Long folderId, @PathVariable("noteId") Long noteId) {
-//        상세 페이지 내부에서 메모 삭제
-        return "notes";
+    // 기본 폴더에 메모 생성
+    @PostMapping("/defaultFolder/notes")
+    public Memo createNoteInDefaultFolder(@RequestBody Memo memo) {
+        return memoService.createNoteInFolder(1L, memo);
     }
-
 }

@@ -1,8 +1,7 @@
 package com.haru.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -10,7 +9,10 @@ import java.time.LocalDate;
 @Table(name="diary")
 @Getter
 @Setter
-public class Dairy {
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Diary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

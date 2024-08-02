@@ -1,8 +1,7 @@
 package com.haru.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -10,6 +9,9 @@ import java.util.Date;
 @Table(name = "memo")
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Memo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
