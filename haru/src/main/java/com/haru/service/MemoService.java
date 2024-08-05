@@ -17,4 +17,6 @@ public interface MemoService {
     Memo getNoteDetails(Long folderId, Long noteId);
     Memo updateNoteDetails(Long folderId, Long noteId, Memo memo);
     void deleteNoteDetails(Long folderId, Long noteId);
+
+    Memo getRecentMemo();
 }

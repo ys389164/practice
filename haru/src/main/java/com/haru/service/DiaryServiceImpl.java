@@ -1,14 +1,13 @@
-package com.haru.service.impl;
+package com.haru.service;
 
 import com.haru.entity.Diary;
 import com.haru.repository.DiaryRepository;
-import com.haru.service.DiaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class DiaryServiceImpl implements DiaryService {
@@ -17,77 +16,96 @@ public class DiaryServiceImpl implements DiaryService {
     private DiaryRepository diaryRepository;
 
     @Override
-    public Diary getStatusTF() {
-        // TF status 로직 구현
-        return null;
+    public List<String> getStatusTF() {
+        List<String> statusList = new ArrayList<>();
+        LocalDate today = LocalDate.now();
+        LocalDate firstDayOfMonth = today.withDayOfMonth(1);
+
+        for (LocalDate date = firstDayOfMonth; !date.isAfter(today); date = date.plusDays(1)) {
+            if (diaryRepository.findByToday(date).isPresent()) {
+                statusList.add("T");
+            } else {
+                statusList.add("F");
+            }
+        }
+        return statusList;
     }
 
     @Override
     public Long getConsecutive() {
-        // 연속된 일자 count 로직 구현
-        return null;
+        List<Diary> diaryList = diaryRepository.findAll();
+        long count = 0;
+        LocalDate previousDay = LocalDate.now().minusDays(1);
+        for(Diary diary : diaryList){
+            if(diary.getToday().isEqual(previousDay)){
+                count++;
+                previousDay = previousDay.minusDays(1);
+            } else {
+                break;
+            }
+        }
+        return count;
     }
 
     @Override
     public Diary getDiaryByDate(String date) {
-        LocalDate localDate = LocalDate.parse(date);
+        return diaryRepository.findByToday(LocalDate.parse(date)).orElse(null);
+        /*LocalDate localDate = LocalDate.parse(date);
         Optional<Diary> diary = diaryRepository.findByToday(localDate);
-        return diary.orElse(null);
+        return diary.orElse(null);*/
     }
 
     @Override
     public boolean checkToday() {
-        LocalDate today = LocalDate.now();
+        return diaryRepository.findByToday(LocalDate.now()).isPresent();
+        /*LocalDate today = LocalDate.now();
         Optional<Diary> diary = diaryRepository.findByToday(today);
-        return diary.isPresent();
+        return diary.isPresent();*/
     }
 
     @Override
     public Diary viewDiary(String date) {
-        LocalDate localDate = LocalDate.parse(date);
+        return diaryRepository.findByToday(LocalDate.parse(date)).orElse(null);
+        /*LocalDate localDate = LocalDate.parse(date);
         Optional<Diary> diary = diaryRepository.findByToday(localDate);
-        return diary.orElse(null);
+        return diary.orElse(null);*/
     }
 
     @Override
     public List<Diary> navigateDiary(String date) {
-        // 슬라이드로 이전 / 다음 날짜 넘기기 로직 구현
+        LocalDate targetDate = LocalDate.parse(date);
+        List<Diary> diaries = diaryRepository.findAll();
         return null;
     }
 
     @Override
     public String cancelDiary() {
-        // 작성 페이지에서 취소 로직 구현
-        return "취소되었습니다.";
+        return "redirect:/api/diary";
     }
 
     @Override
     public Diary submitDiary(String date) {
-        LocalDate localDate = LocalDate.parse(date);
         Diary diary = new Diary();
-        diary.setToday(localDate);
-        // 추가적인 데이터 설정
-        return diaryRepository.save(diary);
+        diary.setToday(LocalDate.parse(date));
+        diaryRepository.save(diary);
+        return diary;
     }
 
     @Override
     public String cancelModal(String date) {
-        // 모달에서 취소 로직 구현
-        return "모달 취소되었습니다.";
+        return "stay";
     }
 
     @Override
     public Diary submitModal(String date) {
-        LocalDate localDate = LocalDate.parse(date);
         Diary diary = new Diary();
-        diary.setToday(localDate);
-        // 추가적인 데이터 설정
-        return diaryRepository.save(diary);
+        diary.setToday(LocalDate.parse(date));
+        diaryRepository.save(diary);
+        return diary;
     }
 
     @Override
     public String cancelView(String date) {
-        // 목록으로 돌아가기 로직 구현
-        return "목록으로 돌아갑니다.";
+        return "redirect:/api/diary";
     }
 }

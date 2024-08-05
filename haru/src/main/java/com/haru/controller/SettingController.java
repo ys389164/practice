@@ -15,6 +15,8 @@ public class SettingController {
     @GetMapping("")
     public String getSettings() {
 //        환경 onload
+//        로그인을 했는지 안했는지 확인해야 하는 함수
+
         return "ook";
     }
 
@@ -27,6 +29,7 @@ public class SettingController {
     @PutMapping("/account/email")
     public String setEmail(@RequestParam("email") String email) {
 //        이메일 변경? 얘는 로그아웃 시킬지 고민 중
+
         return "";
     }
 
@@ -70,6 +73,7 @@ public class SettingController {
 
     @GetMapping("/notice")
     public String notice() {
+//        공지사항. 버전 별로 담기
         return "";
     }
 }
