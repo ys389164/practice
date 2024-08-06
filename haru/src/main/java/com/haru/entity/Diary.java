@@ -15,7 +15,8 @@ import java.time.LocalDate;
 public class Diary {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private LocalDate today;
 
 
