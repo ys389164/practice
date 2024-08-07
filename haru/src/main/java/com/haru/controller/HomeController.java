@@ -39,7 +39,7 @@ public class HomeController {
             model.addAttribute("recentDiary", true);
             Date today = new Date();
             Diary diary = diaryService.getDiaryByDate(new SimpleDateFormat("yyyy-mm-dd").format(today));
-            String contents = diary != null? diary.getContent() : "no diary entry found";
+            String contents = diary != null? diary.getContents() : "no diary entry found";
 
             model.addAttribute("diaryContents", contents);
             model.addAttribute("diaryLink", "/viewDiary");
@@ -49,7 +49,7 @@ public class HomeController {
             model.addAttribute("diaryLink", "/writeDiary");
         }
 
-        model.addAttribute("recentMemo", recentMemo != null ? recentMemo.getContent() : "No recent memo found");
+        model.addAttribute("recentMemo", recentMemo != null ? recentMemo.getContents() : "No recent memo found");
         return "HelloWorld";
     }
 

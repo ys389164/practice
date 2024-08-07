@@ -40,10 +40,10 @@ public class MemoController {
     }
 
     @DeleteMapping("/folders/{folderId}")
-    public void deleteFolder(@PathVariable Long folderId) {
+    public String deleteFolder(@PathVariable Long folderId) {
         // 폴더 삭제
 //        cascade로 메모까지 다 삭제
-        memoService.deleteFolder(folderId);
+        return memoService.deleteFolder(folderId);
     }
 
     @GetMapping("/folders/{folderId}/notes")

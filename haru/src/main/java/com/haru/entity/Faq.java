@@ -12,15 +12,20 @@ public class Faq {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "faqId", nullable = false)
-    private Long faqId;
+    private int faqId;
 
-    @Column(name = "groupId")
-    private Long groupId;
-
-    @Column(name = "title")
+    @Column(name = "title", columnDefinition = "TEXT")
     private String title;
 
-    @Column(name = "contents")
+    @Column(name = "contents", columnDefinition = "LONGTEXT")
     private String contents;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "groupId")
+    private Faqlist group;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "writerId")
+    private Admin writer;
 
 }

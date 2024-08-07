@@ -6,6 +6,8 @@ import com.haru.entity.User;
 import com.haru.repository.FaqRepository;
 import com.haru.repository.NoticeRepository;
 import com.haru.repository.UserRepository;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -30,6 +32,9 @@ public class SettingServiceImpl implements SettingService {
     @Autowired
     private FaqRepository faqRepository;
 
+    @Autowired
+    private GoogleDriveClient googleDriveClient;
+
     @GetMapping("/settings")
     public String getSetting() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -46,7 +51,7 @@ public class SettingServiceImpl implements SettingService {
         Optional<User> user = userRepository.findById(1);
         if (user.isPresent()) {
             User existingUser = user.get();
-            existingUser.setNick(nickname);
+            existingUser.setNickName(nickname);
             userRepository.save(existingUser);
             return true;
         }
@@ -60,35 +65,70 @@ public class SettingServiceImpl implements SettingService {
             User existingUser = user.get();
             existingUser.setEmail(email);
             userRepository.save(existingUser);
+
+            SecurityContextHolder.clearContext();
+//            request.getSession().invalidate();
             return true;
         }
         return false;
     }
 
     @Override
-    public boolean deleteData() {
+    public boolean deleteData(Long userId) {
+        User user = userRepository.findById(userId);
+        if (user != null) {
+            try {
+                userRepository.deleteByUserId(user.getUserId());
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
         return true;
     }
 
     @Override
-    public boolean logout() {
-        //        로그인 시, 뜨는 버튼 '계정관리'
-//        계정관리 창 내부 버튼 '로그아웃' 클릭
-//        로그아웃, 데이터 삭제 X
-        return false;
+    public boolean logout(HttpServletRequest request) {
+        try {
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                session.invalidate();
+            }
+            SecurityContextHolder.clearContext();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
-    public boolean withdrawal() {
-        Optional<User> user = userRepository.findById(1);
-        return false;
+    public boolean withdrawal(Long userId) {
+        Optional<User> user = Optional.ofNullable(userRepository.findById(userId));
+
+        if (user.isPresent()) {
+            userRepository.deleteById(userId);
+            return true;
+        } else {
+            return false;
+        }
     }
+
 
     @Override
     public boolean backup() {
         //        로그인을 해야한 사용할 수 있는 기능
 //        백업 google Drive 사용
-        return false;
+        try {
+            // Call the Google Drive API to backup data
+            googleDriveClient.backupData();
+            return true;
+        } catch (Exception e) {
+            // Log the exception and return false
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
@@ -96,7 +136,15 @@ public class SettingServiceImpl implements SettingService {
         //        로그인을 해야만 사용할 수 있는 기능
 //        복구 google Drive 사용, 이전의 데이터는 다 삭제시키기
 //          모달 띄우기
-        return false;
+        try {
+            // Call the Google Drive API to restore data
+            googleDriveClient.restoreData("hello");
+            return true;
+        } catch (Exception e) {
+            // Log the exception and return false
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
@@ -113,10 +161,10 @@ public class SettingServiceImpl implements SettingService {
     @Override
     public List<Faq> faq(String category) {
         return switch (category) {
-            case "계정" -> faqRepository.findByCategory(1);
-            case "메모" -> faqRepository.findByCategory(2);
-            case "일기" -> faqRepository.findByCategory(3);
-            case "기타" -> faqRepository.findByCategory(4);
+            case "계정" -> faqRepository.findByGroupId(1);
+            case "메모" -> faqRepository.findByGroupId(2);
+            case "일기" -> faqRepository.findByGroupId(3);
+            case "기타" -> faqRepository.findByGroupId(4);
             default -> faqRepository.findAll();
         };
     }

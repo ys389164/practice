@@ -48,7 +48,8 @@ public class DiaryController {
     @GetMapping("view/{date}")
     public Diary diaryView(@PathVariable String date) {
         // 비어있지 않는 경우, view Page
-        return diaryService.viewDiary(date);
+//        return diaryService.viewDiary(date);
+        return diaryService.getDiaryByDate(date);
     }
 
     @GetMapping("/view/{date}/navigate")
@@ -64,14 +65,15 @@ public class DiaryController {
     public String diaryCancelView(@RequestParam String date) {
         // 목록으로 돌아가기
         // redirect? history.go(-1) ? 이런걸 써서 전으로 못돌리나
-        return diaryService.cancelView(date);
+//        return diaryService.cancelView(date);
+        return "redirect:/api/diary";
     }
 
 //    작성 페이지
     @PostMapping("/cancel")
     public String diaryCancel() {
         // 작성 페이지에서 취소, history.go(-1) 이런 걸 써서 뒤로가기로 데이터 복구 못하게 막기
-        return diaryService.cancelDiary();
+        return "redirect:/api/diary";
     }
 
     @PostMapping("/submit")
@@ -86,7 +88,7 @@ public class DiaryController {
     public String diaryModalCancel(@RequestParam String date) {
         // 모달에서 취소
 //        작성 페이지에 계속 남아있기
-        return diaryService.cancelModal(date);
+        return "stay";
     }
 
     @PostMapping("/modal/submit")

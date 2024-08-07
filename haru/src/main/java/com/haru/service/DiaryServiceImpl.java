@@ -50,37 +50,25 @@ public class DiaryServiceImpl implements DiaryService {
     @Override
     public Diary getDiaryByDate(String date) {
         return diaryRepository.findByToday(LocalDate.parse(date)).orElse(null);
-        /*LocalDate localDate = LocalDate.parse(date);
-        Optional<Diary> diary = diaryRepository.findByToday(localDate);
-        return diary.orElse(null);*/
     }
 
     @Override
     public boolean checkToday() {
         return diaryRepository.findByToday(LocalDate.now()).isPresent();
-        /*LocalDate today = LocalDate.now();
-        Optional<Diary> diary = diaryRepository.findByToday(today);
-        return diary.isPresent();*/
     }
 
-    @Override
-    public Diary viewDiary(String date) {
-        return diaryRepository.findByToday(LocalDate.parse(date)).orElse(null);
-        /*LocalDate localDate = LocalDate.parse(date);
-        Optional<Diary> diary = diaryRepository.findByToday(localDate);
-        return diary.orElse(null);*/
-    }
+
+    //    조회 페이지
 
     @Override
     public List<Diary> navigateDiary(String date) {
-        LocalDate targetDate = LocalDate.parse(date);
-        List<Diary> diaries = diaryRepository.findAll();
-        return null;
-    }
+        LocalDate currentDate = LocalDate.parse(date);
+        List<Diary> diaries = new ArrayList<>();
 
-    @Override
-    public String cancelDiary() {
-        return "redirect:/api/diary";
+        diaryRepository.findPreviousDiary(currentDate).ifPresent(diaries::add);
+        diaryRepository.findNextDiary(currentDate).ifPresent(diaries::add);
+
+        return diaries;
     }
 
     @Override
@@ -92,11 +80,6 @@ public class DiaryServiceImpl implements DiaryService {
     }
 
     @Override
-    public String cancelModal(String date) {
-        return "stay";
-    }
-
-    @Override
     public Diary submitModal(String date) {
         Diary diary = new Diary();
         diary.setToday(LocalDate.parse(date));
@@ -104,8 +87,4 @@ public class DiaryServiceImpl implements DiaryService {
         return diary;
     }
 
-    @Override
-    public String cancelView(String date) {
-        return "redirect:/api/diary";
-    }
 }

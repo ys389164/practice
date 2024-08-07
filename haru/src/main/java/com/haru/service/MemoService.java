@@ -8,8 +8,8 @@ import java.util.List;
 public interface MemoService {
     List<Folderlist> getAllFolders();
     Folderlist createFolder(Folderlist folderlist);
-    Folderlist updateFolder(Long folderId, Folderlist folderlist);
-    void deleteFolder(Long folderId);
+    Folderlist updateFolder(int folderId, Folderlist folderlist);
+    String deleteFolder(Long folderId);
 
     List<Memo> getNotesByFolderId(Long folderId);
     Memo createNoteInFolder(Long folderId, Memo memo);

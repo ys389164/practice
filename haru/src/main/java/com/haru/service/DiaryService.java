@@ -9,13 +9,8 @@ public interface DiaryService {
 
     Diary getDiaryByDate(String date);
     boolean checkToday();
-    Diary viewDiary(String date);
     List<Diary> navigateDiary(String date);
 
-    String cancelView(String date);
-
-    String cancelDiary();
     Diary submitDiary(String date);
-    String cancelModal(String date);
     Diary submitModal(String date);
 }

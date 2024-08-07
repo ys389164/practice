@@ -13,9 +13,10 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Memo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long memoId;
+    private int memoId;
 
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
@@ -26,7 +27,13 @@ public class Memo {
     private Folderlist folderlist;
 
     private String title;
-    private String content;
+
+    @Column(columnDefinition = "LONGTEXT")
+    private String contents;
+
+    @Temporal(TemporalType.DATE)
     private Date writeDate;
+
+    @Column(columnDefinition = "TEXT")
     private String filePath;
 }

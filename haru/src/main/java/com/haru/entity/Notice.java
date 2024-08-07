@@ -1,9 +1,6 @@
 package com.haru.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,11 +9,16 @@ import lombok.Setter;
 @Entity
 @Table(name = "notice")
 public class Notice {
+
     @Id
     @Column(name = "version", nullable = false)
     private String version;
 
-    @Column(name = "contents")
+    @Column(name = "contents", columnDefinition = "LONGTEXT")
     private String contents;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "writerId")
+    private Admin writer;
 
 }

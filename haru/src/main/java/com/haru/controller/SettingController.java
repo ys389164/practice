@@ -3,7 +3,12 @@ package com.haru.controller;
 import com.haru.entity.Faq;
 import com.haru.entity.Notice;
 import com.haru.service.SettingService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,44 +47,92 @@ public class SettingController {
         return settingService.setEmail(email);
     }
 
-    @DeleteMapping("/account/deleteData")
-    public boolean deleteData(@RequestParam("email") String nickname) {
+    /*@DeleteMapping("/account/deleteData")
+    public boolean deleteData(@RequestParam("userId") Long userId) {
         //        로그인 시, 뜨는 버튼 '계정관리'
 //        계정관리 창 내부 버튼 '데이터 삭제' 클릭
 //        모달 띄우기
 //        모달에서 확인 누를 시, 데이터 삭제 but 계정 정보는 삭제 X
-        return settingService.deleteData();
+        return settingService.deleteData(userId);
+    }*/
+
+    @DeleteMapping("/account/deleteData")
+    public ResponseEntity<String> deleteData(@RequestParam("userId") Long userId) {
+        return ResponseEntity.ok("데이터 삭제 확인을 위한 모달");
     }
 
+    @PostMapping("/account/deleteData/confirmSuccess")
+    public ResponseEntity<String> deleteConfirmSuccess(@RequestParam("userId") Long userId) {
+        boolean success = settingService.deleteData(userId);
+        if (success) {
+            return ResponseEntity.ok("데이터가 성공적으로 삭제되었습니다.");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("데이터 삭제에 실패했습니다.");
+        }
+    }
+
+
     @PostMapping("/account/logout")
-    public boolean logout() {
+    public ResponseEntity<String> logout(HttpServletRequest request) {
+        boolean success = settingService.logout(request);
+        if (success) {
+            return ResponseEntity.ok("로그아웃 되었습니다. 게스트 상태로 돌아갑니다.");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("로그아웃에 실패했습니다.");
+        }
         //        로그인 시, 뜨는 버튼 '계정관리'
 //        계정관리 창 내부 버튼 '로그아웃' 클릭
 //        로그아웃, 데이터 삭제 X
-        return settingService.logout();
     }
 
     @DeleteMapping("/account/withdrawal")
-    public boolean withdrawal() {
+    public ResponseEntity<String> withdrawal() {
 //        회원탈퇴, 데이터 삭제 및 계정 정보 삭제
 //        모달 띄우기
 //        모달에서 확인 누를 시, 회원 탈퇴.
-        return settingService.withdrawal();
+        return ResponseEntity.ok("계정 삭제 확인을 위한 모달");
     }
 
+    @PostMapping("/account/withdrawal/confirmSuccess")
+    public ResponseEntity<String> withdrawalConfirmSuccess(@RequestParam("userId") Long userId) {
+        boolean success = settingService.withdrawal(userId);
+        if (success) {
+            return ResponseEntity.ok("데이터가 성공적으로 삭제되었습니다.");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("데이터 삭제에 실패했습니다.");
+        }
+    }
+
+
     @PostMapping("/backAndRecover/backup")
-    public boolean backup() {
+    public ResponseEntity<String> backup(@AuthenticationPrincipal UserDetails userDetails) {
 //        로그인을 해야한 사용할 수 있는 기능
 //        백업 google Drive 사용
-        return settingService.backup();
+        if (userDetails == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login required");
+        }
+        boolean success = settingService.backup();
+        if (success) {
+            return ResponseEntity.ok("Backup successful");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Backup failed");
+        }
     }
 
     @PostMapping("/backAndRecover/restore")
-    public boolean restore() {
-//        로그인을 해야만 사용할 수 있는 기능
+    public ResponseEntity<String> restore(@AuthenticationPrincipal UserDetails userDetails) {
+        //        로그인을 해야만 사용할 수 있는 기능
 //        복구 google Drive 사용, 이전의 데이터는 다 삭제시키기
 //          모달 띄우기
-        return settingService.restore();
+        if (userDetails == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login required");
+        }
+        boolean success = settingService.restore();
+        if (success) {
+            return ResponseEntity.ok("Restore successful");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Restore failed");
+        }
     }
 
     @GetMapping("/export/{category}")

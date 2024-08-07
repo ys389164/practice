@@ -7,7 +7,8 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface FaqRepository extends JpaRepository<Faq, Long> {
-    @Query("SELECT f FROM Faq f WHERE f.groupId = :i")
-    List<Faq> findByCategory(@Param("i") int i);
+public interface FaqRepository extends JpaRepository<Faq, Integer> {
+
+    @Query("SELECT f FROM Faq f WHERE f.group.groupId = :idx")
+    List<Faq> findByGroupId(@Param("idx") int idx);
 }
