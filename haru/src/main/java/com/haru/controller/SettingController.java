@@ -4,11 +4,15 @@ import com.haru.entity.Faq;
 import com.haru.entity.Notice;
 import com.haru.service.SettingService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,20 +25,38 @@ public class SettingController {
     private SettingService settingService;
 
 
-    @GetMapping("")
-    public String getSettings() {
+    @GetMapping("/")
+    public String getSettings(@AuthenticationPrincipal OAuth2User principal, Model model) {
 // 환경 onload
 // 로그인을 했는지 안했는지 확인하는 함수
 // login true : 유저 닉네임 + 이메일, login false : 게스트 표기, 랜덤 코드 표기
 // table에서 가져오기
+
+        int randomCode = (int) (Math.random() * 100);
+        if (principal != null) {
+            String name = principal.getAttribute("name");
+            String email = principal.getAttribute("email");
+            model.addAttribute("name", name);
+            model.addAttribute("email", email);
+        } else {
+            model.addAttribute("name", "Guest");
+            model.addAttribute("randomCode", randomCode);
+        }
         return settingService.getSetting();
+    }
+
+    @PostMapping("/signUp")
+    public ResponseEntity<String> signUp(@AuthenticationPrincipal OAuth2User principal, Model model) {
+        if (principal != null) {
+            String name = principal.getAttribute("name");
+            return ResponseEntity.ok(name);
+        }
+//        google login
+        return ResponseEntity.badRequest().body("failed");
     }
 
     @PutMapping("/account/nickname")
     public boolean setNickname(@RequestParam("nickname") String nickname) {
-//        로그인 시, 뜨는 버튼 '계정관리'
-//        계정관리 창 내부 버튼 '닉네임 변경' 클릭
-//        닉네임 변경 후 data 전송 하는 버튼
         return settingService.setNickname(nickname);
     }
 
@@ -71,19 +93,16 @@ public class SettingController {
         }
     }
 
-
-    @PostMapping("/account/logout")
-    public ResponseEntity<String> logout(HttpServletRequest request) {
-        boolean success = settingService.logout(request);
-        if (success) {
-            return ResponseEntity.ok("로그아웃 되었습니다. 게스트 상태로 돌아갑니다.");
-        } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("로그아웃에 실패했습니다.");
-        }
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(HttpServletRequest request, HttpServletResponse response) {
         //        로그인 시, 뜨는 버튼 '계정관리'
-//        계정관리 창 내부 버튼 '로그아웃' 클릭
-//        로그아웃, 데이터 삭제 X
+        //        계정관리 창 내부 버튼 '로그아웃' 클릭
+        //        로그아웃, 데이터 숨김 X
+        SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+        logoutHandler.logout(request, response, null);
+        return ResponseEntity.ok().build();
     }
+
 
     @DeleteMapping("/account/withdrawal")
     public ResponseEntity<String> withdrawal() {
@@ -104,7 +123,7 @@ public class SettingController {
     }
 
 
-    @PostMapping("/backAndRecover/backup")
+    @GetMapping("/backAndRecover/backup")
     public ResponseEntity<String> backup(@AuthenticationPrincipal UserDetails userDetails) {
 //        로그인을 해야한 사용할 수 있는 기능
 //        백업 google Drive 사용
