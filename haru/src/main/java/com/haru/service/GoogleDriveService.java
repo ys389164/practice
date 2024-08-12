@@ -1,4 +1,5 @@
 package com.haru.service;
+/*
 
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.googleapis.json.GoogleJsonClientRequestInitializer;
@@ -64,3 +65,4 @@ public class GoogleDriveService {
         }
     }
 }
+*/

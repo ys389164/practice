@@ -26,12 +26,14 @@ export default function Footer() {
                     </Link>
                 </li>
                 <li className="calendarTab">
-                    <Link to="/calendar">
+                    {/* <Link to="/calendar"> */}
+                    <Link to="#" onClick={()=>{alert("추후 구현 예정입니다.")}}>
                         <img src={calendar} alt="캘린더" />
                     </Link>
                 </li>
                 <li className="DdayTab">
-                    <Link to="/dday">
+                    {/* <Link to="/dday"> */}
+                    <Link to="#" onClick={()=>{alert("추후 구현 예정입니다.")}}>
                         <img src={dDay} alt="디데이" />
                     </Link>
                 </li>

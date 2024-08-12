@@ -30,8 +30,10 @@ export default function Setting() {
                 <h3>설정</h3>
                 <div className="optionsBtnWrap">
                     {isLoggedIn && <Link to="/setting/user">계정관리</Link>}
-                    <Link to="/setting/backup">백업 및 복구</Link>
-                    <Link to="/setting/export">txt 파일로 내보내기</Link>
+                    {/* <Link to="/setting/backup"></Link> */}
+                    <Link to="#" onClick={()=>{alert("추후 구현 예정입니다.")}}>백업 및 복구</Link>
+                    {/* <Link to="/setting/export"></Link> */}
+                    <Link to="#"  onClick={()=>{alert("추후 구현 예정입니다.")}}>txt 파일로 내보내기</Link>
                     <Link to="/setting/faq">FAQ</Link>
                     <Link to="/setting/announce">공지사항</Link>
                 </div>

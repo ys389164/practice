@@ -8,10 +8,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+//import org.springframework.security.core.annotation.AuthenticationPrincipal;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.oauth2.core.user.OAuth2User;
+//import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+//import org.springframework.ui.Model;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +26,6 @@ public class SettingController {
 
     @Autowired
     private SettingService settingService;
-
 
     @GetMapping("/")
     public String getSettings(@AuthenticationPrincipal OAuth2User principal, Model model) {
@@ -66,17 +68,10 @@ public class SettingController {
 //        계정관리 창 내부 버튼 '이메일 변경' 클릭
 //        이메일 변경 후 data 전송 하는 버튼
 //        이메일 변경된 이후, 로그아웃 시키기
-        return settingService.setEmail(email);
+//        return settingService.setEmail(email);
+        return true;
     }
 
-    /*@DeleteMapping("/account/deleteData")
-    public boolean deleteData(@RequestParam("userId") Long userId) {
-        //        로그인 시, 뜨는 버튼 '계정관리'
-//        계정관리 창 내부 버튼 '데이터 삭제' 클릭
-//        모달 띄우기
-//        모달에서 확인 누를 시, 데이터 삭제 but 계정 정보는 삭제 X
-        return settingService.deleteData(userId);
-    }*/
 
     @DeleteMapping("/account/deleteData")
     public ResponseEntity<String> deleteData(@RequestParam("userId") Long userId) {
@@ -93,7 +88,7 @@ public class SettingController {
         }
     }
 
-    @PostMapping("/logout")
+   /* @PostMapping("/logout")
     public ResponseEntity<Void> logout(HttpServletRequest request, HttpServletResponse response) {
         //        로그인 시, 뜨는 버튼 '계정관리'
         //        계정관리 창 내부 버튼 '로그아웃' 클릭
@@ -101,7 +96,7 @@ public class SettingController {
         SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
         logoutHandler.logout(request, response, null);
         return ResponseEntity.ok().build();
-    }
+    }*/
 
 
     @DeleteMapping("/account/withdrawal")
@@ -122,7 +117,7 @@ public class SettingController {
         }
     }
 
-
+/*
     @GetMapping("/backAndRecover/backup")
     public ResponseEntity<String> backup(@AuthenticationPrincipal UserDetails userDetails) {
 //        로그인을 해야한 사용할 수 있는 기능
@@ -152,7 +147,7 @@ public class SettingController {
         } else {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Restore failed");
         }
-    }
+    }*/
 
     @GetMapping("/export/{category}")
     public List<Object> export(@RequestParam("type") String type) {

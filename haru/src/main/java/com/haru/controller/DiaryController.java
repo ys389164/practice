@@ -3,6 +3,7 @@ package com.haru.controller;
 import com.haru.entity.Diary;
 import com.haru.service.DiaryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,11 +16,11 @@ public class DiaryController {
     private DiaryService diaryService;
 
     @GetMapping("/statusTF")
-    public List<String> diaryStatus() {
+    public List<String> diaryStatus(@RequestParam("year") int year, @RequestParam("month") int month) {
         // 캘린더에 TF status 작성
 //        오늘 날짜에서 이전의 것들은 전부 F, 만약 일기가 있다면 T
 //        return 형태는 list 형으로
-        return diaryService.getStatusTF();
+        return diaryService.getStatusTF(year, month);
     }
 
     @GetMapping("/consecutive")
@@ -30,10 +31,9 @@ public class DiaryController {
     }
 
     @GetMapping("/{date}")
-    public Diary diary(@PathVariable String date) {
-//        캘린더 클릭 시, 해당 날짜를 받아오기
-        // 특정 일자의 내용 갖고오기, 없으면 비어있음으로 출력
-        return diaryService.getDiaryByDate(date);
+    public ResponseEntity<Diary> getDiary(@PathVariable String date) {
+        Diary diary = diaryService.getDiaryByDate(date);
+        return ResponseEntity.ok(diary);
     }
 
     @GetMapping("/checkToday")
@@ -57,7 +57,6 @@ public class DiaryController {
         // 슬라이드로 이전 / 다음 날짜 넘기기
 //        비어있지 않은 이전 페이지, 다음 페이지로 넘어가기
 //        만약 끝이면 슬라이드가 불가능하게끔.
-
         return diaryService.navigateDiary(date);
     }
 

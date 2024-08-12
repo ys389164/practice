@@ -1,5 +1,6 @@
 package com.haru.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,9 +20,9 @@ public class Diary {
     @Column(nullable = false)
     private LocalDate today;
 
-
     @ManyToOne
-    @JoinColumn(name = "userId", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference // Prevents infinite recursion in the User side
     private User user;
 
     private String title;

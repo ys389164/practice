@@ -13,7 +13,6 @@ const Modal = ({handleClose}) => {
                 </div>
             </div>
             
-        
 
             <section className="modal-main">
                 <button className="uploadBtn" onClick={()=>{backEndBridge()}}>등록</button>

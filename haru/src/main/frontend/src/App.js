@@ -7,6 +7,7 @@ import './assets/styles/style.scss';
 
 //모달 추가
 import DairyWriting from "./components/modals/DairyWriting";
+import DiaryDetail from "./components/modals/DairyDetail";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -48,7 +49,11 @@ function App() {
   useEffect(()=>{
     if(modalName === 'DairyWriting'){
       setModalComponents(<DairyWriting></DairyWriting>);
-    }if(!modalName){
+    }
+    if(modalName === 'DiaryDetail'){
+      setModalComponents(<DiaryDetail></DiaryDetail>)
+    }
+    if(!modalName){
       setModalComponents(<></>);
     }
   },[modalName])

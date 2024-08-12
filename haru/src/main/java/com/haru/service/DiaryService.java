@@ -4,7 +4,7 @@ import com.haru.entity.Diary;
 import java.util.List;
 
 public interface DiaryService {
-    List<String> getStatusTF();
+    List<String> getStatusTF(int year, int month);
     Long getConsecutive();
 
     Diary getDiaryByDate(String date);

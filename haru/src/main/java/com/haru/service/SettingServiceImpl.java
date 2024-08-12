@@ -9,6 +9,9 @@ import com.haru.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+/*import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.core.user.OAuth2User;*/
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -32,8 +35,8 @@ public class SettingServiceImpl implements SettingService {
     @Autowired
     private FaqRepository faqRepository;
 
-    @Autowired
-    private GoogleDriveClient googleDriveClient;
+    /*@Autowired
+    private GoogleDriveClient googleDriveClient;*/
 
     @GetMapping("/settings")
     public String getSetting() {
@@ -58,7 +61,7 @@ public class SettingServiceImpl implements SettingService {
         return false;
     }
 
-    @Override
+   /* @Override
     public boolean setEmail(String email) {
         Optional<User> user = userRepository.findById(1);
         if (user.isPresent()) {
@@ -71,7 +74,7 @@ public class SettingServiceImpl implements SettingService {
             return true;
         }
         return false;
-    }
+    }*/
 
     @Override
     public boolean deleteData(Long userId) {
@@ -88,7 +91,7 @@ public class SettingServiceImpl implements SettingService {
         return true;
     }
 
-    @Override
+   /* @Override
     public boolean logout(HttpServletRequest request) {
         try {
             HttpSession session = request.getSession(false);
@@ -101,14 +104,14 @@ public class SettingServiceImpl implements SettingService {
             e.printStackTrace();
             return false;
         }
-    }
+    }*/
 
     @Override
     public boolean withdrawal(Long userId) {
         Optional<User> user = Optional.ofNullable(userRepository.findById(userId));
 
         if (user.isPresent()) {
-            userRepository.deleteById(userId);
+//            userRepository.deleteById(userId);
             return true;
         } else {
             return false;
@@ -116,7 +119,7 @@ public class SettingServiceImpl implements SettingService {
     }
 
 
-    @Override
+    /*@Override
     public boolean backup() {
         //        로그인을 해야한 사용할 수 있는 기능
 //        백업 google Drive 사용
@@ -145,7 +148,7 @@ public class SettingServiceImpl implements SettingService {
             e.printStackTrace();
             return false;
         }
-    }
+    }*/
 
     @Override
     public List<Object> export(String type) {

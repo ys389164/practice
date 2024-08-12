@@ -1,4 +1,5 @@
 package com.haru.controller;
+/*
 
 import com.haru.service.GoogleDriveService;
 import org.springframework.web.bind.annotation.*;
@@ -47,3 +48,4 @@ public class DriveController {
         }
     }
 }
+*/

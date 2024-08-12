@@ -3,6 +3,7 @@ package com.haru.service;
 import com.haru.entity.Diary;
 import com.haru.repository.DiaryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -16,12 +17,18 @@ public class DiaryServiceImpl implements DiaryService {
     private DiaryRepository diaryRepository;
 
     @Override
-    public List<String> getStatusTF() {
+    public List<String> getStatusTF(int year, int month) {
         List<String> statusList = new ArrayList<>();
         LocalDate today = LocalDate.now();
-        LocalDate firstDayOfMonth = today.withDayOfMonth(1);
+        LocalDate firstDayOfMonth = LocalDate.of(year, month, 1);
+        LocalDate lastDayOfMonth = firstDayOfMonth.withDayOfMonth(firstDayOfMonth.lengthOfMonth());
 
-        for (LocalDate date = firstDayOfMonth; !date.isAfter(today); date = date.plusDays(1)) {
+        // 현재 연도와 월인 경우 오늘 날짜 이전까지만 출력
+        if (year == today.getYear() && month == today.getMonthValue()) {
+            lastDayOfMonth = today;
+        }
+
+        for (LocalDate date = firstDayOfMonth; !date.isAfter(lastDayOfMonth); date = date.plusDays(1)) {
             if (diaryRepository.findByToday(date).isPresent()) {
                 statusList.add("T");
             } else {
@@ -31,13 +38,16 @@ public class DiaryServiceImpl implements DiaryService {
         return statusList;
     }
 
+
     @Override
     public Long getConsecutive() {
-        List<Diary> diaryList = diaryRepository.findAll();
+        List<Diary> diaryList = diaryRepository.findAll(Sort.by(Sort.Order.desc("today")));
         long count = 0;
         LocalDate previousDay = LocalDate.now().minusDays(1);
-        for(Diary diary : diaryList){
-            if(diary.getToday().isEqual(previousDay)){
+
+        for (Diary diary : diaryList) {
+            LocalDate diaryDate = diary.getToday(); // 날짜가 LocalDate 형식인지 확인
+            if (diaryDate.equals(previousDay)) {
                 count++;
                 previousDay = previousDay.minusDays(1);
             } else {
@@ -46,6 +56,7 @@ public class DiaryServiceImpl implements DiaryService {
         }
         return count;
     }
+
 
     @Override
     public Diary getDiaryByDate(String date) {

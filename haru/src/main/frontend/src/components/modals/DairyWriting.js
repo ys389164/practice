@@ -4,7 +4,7 @@ import Modal from './DairyModal';
 import { changeModalName, modalStateOff } from "../../slices/modalState";
 import { useDispatch } from 'react-redux';
 
-export default function DairyWriting() {
+export default function DairyWriting(props) {
     const dispatch = useDispatch();
     const [src1, setSrc1] = useState('');
     const [src2, setSrc2] = useState('');

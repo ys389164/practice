@@ -1,5 +1,6 @@
 package com.haru.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -38,15 +39,19 @@ public class User {
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "user")
+    @JsonManagedReference // Prevents infinite recursion in the Diary side
     private Set<Diary> diaries = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "user")
+    @JsonManagedReference
     private Set<Folderlist> folderlists = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "user")
+    @JsonManagedReference
     private Set<Memo> memos = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "user")
+    @JsonManagedReference
     private Set<Session> sessions = new LinkedHashSet<>();
 
     @PrePersist
